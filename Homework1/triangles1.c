@@ -1,5 +1,20 @@
 #include <stdio.h>
 
+int doubles_same(double a, double b) {
+
+	double tmp;
+	
+	tmp = a - b;
+	if (tmp < 0) {
+		tmp = -tmp;
+	}
+	if (tmp > 0.0000001) {
+		return 0;
+	} else {
+		return 1;
+	}
+}
+
 int main(void) 
 {
 	double a;
@@ -11,7 +26,6 @@ int main(void)
 	double tmp;
 	int res;
 	
-
 	/* Get input information about first triangle */
 	printf("Triangle #1:\n");
 	res = scanf("%lf %lf %lf", &a, &b, &c);
@@ -113,11 +127,12 @@ int main(void)
 	}
 
 	/* Compare triangles */
-	if ((a == d) && (b == e) && (c == f)) {
+	if (doubles_same(a, d) && doubles_same(b, e) && doubles_same(c, f)) {
 		printf("The triangles are identical.\n");
 		return 0;
 	}
-	if (((a / d) == (b / e)) && ((a / d) == (c / f))) {
+	
+	if (doubles_same(a / d, b / e) && doubles_same(a / d, c / f)) {
 		printf("The triangles are not identical, however, they are similar.\n");
 	} else {
 		printf("The triangles are neither identical nor similar.\n");
