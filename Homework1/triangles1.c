@@ -12,13 +12,14 @@ int main(void)
 	int res;
 	
 
+	/* Get input information about first triangle */
 	printf("Triangle #1:\n");
 	res = scanf("%lf %lf %lf", &a, &b, &c);
 	if (res != 3) {
 		printf("Invalid input.\n");
 		return 0;
 	}
-	if ((a < 0) || (b < 0) || (c < 0)) {
+	if (!((a > 0) && (b > 0) && (c > 0))) {
 		printf("Invalid input.\n");
 		return 0;
 	}
@@ -27,13 +28,14 @@ int main(void)
 		return 0;
 	}
 	
+	/* Get input information about second triangle */
 	printf("Triangle #2:\n");
 	res = scanf("%lf %lf %lf", &d, &e, &f);
 	if (res != 3) {
 		printf("Invalid input.\n");
 		return 0;
 	}
-	if ((d < 0) || (e < 0) || (f < 0)) {
+	if (!((d > 0) && (e > 0) && (f > 0))) {
 		printf("Invalid input.\n");
 		return 0;
 	}
@@ -42,7 +44,7 @@ int main(void)
 		return 0;
 	}
 	
-	/* Sort triangle side length */
+	/* Sort first triangle side length */
 	if ((a < b) && (a < c)) { 
 		/* a is minimum */
 		if (c < b) {
@@ -71,7 +73,7 @@ int main(void)
 			c = tmp;
 		}
 	}
-	if (!((a <= b) && (b <= c))) {
+	if ((a > b) || (b > c)) {
 		printf("Sort did not work\n");
 		return 0;
 	}
@@ -105,7 +107,7 @@ int main(void)
 			f = tmp;
 		}
 	}
-	if (!((d <= e) && (e <= f))) {
+	if ((d > e) || (e > f)) {
 		printf("Sort did not work\n");
 		return 0;
 	}
