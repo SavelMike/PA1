@@ -15,6 +15,8 @@ int doubles_same(double a, double b) {
 	}
 }
 
+void sort_3(double a; double b; double c) {
+
 int main(void) 
 {
 	double a;
