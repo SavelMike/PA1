@@ -24,6 +24,36 @@ int fibonacci(int n)
 	return fib;	
 }
 
+/*
+ * Iterative version of tribonacci function
+ */
+int tribonacci(int n)
+{
+	int i;
+	int trib;
+	int prev1;
+	int prev2;
+	int prev3;
+
+	if (n <= 2) {
+		return 1;
+	}
+	if (n == 3) {
+		return 2;
+	}
+	prev3 = 2;
+	prev2 = 1;
+	prev1 = 1;
+	for (i = 0; i < n - 3; i++) {
+		trib = prev1 + prev2 + prev3;
+		prev3 = prev2;
+		prev2 = prev1;
+		prev1 = trib;
+	}
+
+	return trib;
+}
+
 /* 
  * This function can calculate n'th element of fibonacci, tribonacci, tribonnaci 
  * for tribonacci call anybonacci (n, 2)
@@ -80,9 +110,9 @@ int main(void)
 	
 	printf("Input the number of sequence element: ");
 	scanf("%d", &n);
-	printf("Fibonacci number =  %d/%d; Tribonnaci number = %d; Tribonacci number = %d\n", 
+	printf("Fibonacci number =  %d/%d; Tribonnaci number = %d; Tribonacci number = %d/%d\n", 
 			fibonacci(n), anybonacci(n, 0), 
-			anybonacci(n, 1), anybonacci(n, 2));
+			anybonacci(n, 1), anybonacci(n, 2), tribonacci(n));
 
 	return 0;
 }
