@@ -7,11 +7,11 @@ int doubles_same(double a, double b) {
 
 	double tmp;
 	
-	tmp = a - b;
+	tmp = a / b;
 	if (tmp < 0) {
-		tmp = -tmp;
+		return 0;
 	}
-	if (tmp > 1.0E-300) {
+	if (fabs(1.0 - tmp) > 1.0E-6) {
 		return 0;
 	} else {
 		return 1;
@@ -62,7 +62,7 @@ int ASA_valid(double a, double b, double c)
 		printf("Invalid input.\n");
 		exit(0);
 	}
-	if (!((a < 180 && c < 90) || (a < 90 && c < 180))) {
+	if (!(a + c < 180)) {
 		printf("The input does not form a triangle.\n");
 		exit(0);
 	}

@@ -11,6 +11,8 @@
 ../triangles2 < ENG/0008_in.txt > myOutput0008 
 ../triangles2 < ENG/0009_in.txt > myOutput0009 
 ../triangles2 < ENG/0010_in.txt > myOutput0010 
+../triangles2 < ENG/in_3381260.bin > myOutput0011 
+../triangles2 < ENG/in_3381275.bin > myOutput0012 
 
 diff -u myOutput0000 ENG/0000_out.txt
 diff -u myOutput0001 ENG/0001_out.txt
@@ -23,5 +25,7 @@ diff -u myOutput0007 ENG/0007_out.txt
 diff -u myOutput0008 ENG/0008_out.txt
 diff -u myOutput0009 ENG/0009_out.txt
 diff -u myOutput0010 ENG/0010_out.txt
+diff -u myOutput0011 ENG/ref_3381260.bin
+diff -u myOutput0012 ENG/ref_3381275.bin
 
 rm myOutput*
